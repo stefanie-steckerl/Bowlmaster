@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Pin : MonoBehaviour
 {
+    public float distanceToRaise = 40f;
+    public Rigidbody rigidBody;
 
-    //public float standingThreshold = 6f;
-
+    //private float standingThreshold = 3f;
 
     void Start()
     {
         // Use this for initialization
-
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -32,26 +33,27 @@ public class Pin : MonoBehaviour
 
         // Get the angle between pin's rotation and world's "up"
 
-        float tiltAngle = Quaternion.Angle(rotationWithoutTwist, Quaternion.identity);
+       float tiltAngle = Quaternion.Angle(rotationWithoutTwist, Quaternion.identity);
 
-        return (tiltAngle >= 87f && tiltAngle <= 92f );
+       return (tiltAngle >= 87f && tiltAngle <= 92f );
 
+   }
+
+    public void RaiseIfStanding(){
+    if (isStanding())
+            {
+            rigidBody.useGravity = false;
+            transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
+            }
     }
 
 
-    //This is the initial method that was taught in the class, but which did not work!
-    //public bool isStanding() {
-    //Vector3 rotationInEuler = transform.rotation.eulerAngles;
-    //float tiltInX = Mathf.Abs(rotationInEuler.x);
-    //float tiltInZ = Mathf.Abs(rotationInEuler.z);
-
-    //if (90 - tiltInX < standingThreshold && tiltInZ > standingThreshold)
-    //   {
-    // return true;
-    // }
-    // else {
-    // return false;
-    // }
-    // }
-
+    public void Lower()
+    {
+        if (isStanding())
+        {
+            transform.Translate(new Vector3(0, 0, 0), Space.World);
+            rigidBody.useGravity = true;
+        }
+    }
 }

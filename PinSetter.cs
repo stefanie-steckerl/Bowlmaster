@@ -7,14 +7,15 @@ public class PinSetter : MonoBehaviour {
 
     public Text standingDisplay;
     public int lastStandingCount = -1;
-    public float distanceToRaise = 40f;
+    public GameObject pinSet;
 
-    private Ball ball;
     private bool ballEnteredBox = false;
+    private Ball ball;
     private float lastChangeTime;
 
     void Start () {
         ball = GameObject.FindObjectOfType<Ball>();
+
     }
 	
 	// Update is called once per frame
@@ -22,38 +23,39 @@ public class PinSetter : MonoBehaviour {
 
         standingDisplay.text = CountStanding().ToString();
         if(ballEnteredBox){
-            CheckStanding();
+            UpdateStandingCountAndSettle();
         }
 
     }
 
     public void RaisePins (){
-        // Raise standing pins only distanceToRaise
+
         Debug.Log("Raising pins");
         foreach (Pin pin in GameObject.FindObjectsOfType<Pin>())
         {
-
-            if (pin.isStanding())
-            {
-                pin.transform.Translate (new Vector3 (0, distanceToRaise, 0));
-            }
+           pin.RaiseIfStanding();
         }
     }
 
     public void LowerPins()
-    {
+        {
         Debug.Log("Lowering pins");
+        foreach (Pin pin in GameObject.FindObjectsOfType<Pin>()){            
+            pin.Lower();
+        }
+
     }
 
     public void RenewPins()
     {
         Debug.Log("Renewing pins");
+        Instantiate(pinSet, new Vector3(0, 0, 1829), Quaternion.identity);
     }
 
-    void CheckStanding()
+    void UpdateStandingCountAndSettle()
     {
         // Update lastStandingCount
-        // Call PinsHaveSettled() when they have
+        // Call PinsHaveSettled() when they have settled
         int currentStanding = CountStanding();
 
         if(currentStanding != lastStandingCount){
@@ -74,29 +76,6 @@ public class PinSetter : MonoBehaviour {
         lastStandingCount = -1; // Indicates pins have settled and ball not back in box
         ballEnteredBox = false;
         standingDisplay.color = Color.green;
-    }
-
-    void OnTriggerEnter(Collider collider)
-    {
-        GameObject thingHit = collider.gameObject;
-
-        // Ball enters play box
-        if(thingHit.GetComponent<Ball>()){
-            ballEnteredBox = true;
-            standingDisplay.color = Color.red;
-        }
-
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        GameObject thingLeft = collider.gameObject;
-
-
-        //Figure out whether pins exited the play area and then destroy them
-        if(thingLeft.GetComponent<Pin>()){
-            Destroy(thingLeft);
-        }
     }
 
     int CountStanding(){
