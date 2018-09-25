@@ -823,7 +823,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54172524848914572
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -838,7 +838,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54208583834350214
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -853,7 +853,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54283810380846900
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -868,7 +868,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54293134756009318
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -883,7 +883,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54484189370997096
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -898,7 +898,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54622925541819880
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -913,7 +913,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54655776315476414
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -928,7 +928,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54744373699069542
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -943,7 +943,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54794663430277096
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -958,7 +958,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64097433321581528
 MeshCollider:
   m_ObjectHideFlags: 1
